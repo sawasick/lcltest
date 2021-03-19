@@ -1,0 +1,181 @@
+@charset "UTF-8";
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: auto;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.title {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 10vh;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background-color: #fff;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+}
+
+.title-main {
+  left: 3vw;
+  position: relative;
+  margin: 0;
+  color: #892e05;
+  top: 3%;
+  font-size: 2.5vw;
+  font-weight: bold;
+  width: 50%;
+}
+
+.title-sub {
+  left: 5%;
+  position: relative;
+  width: 20%;
+  margin: 0;
+  color: #892e05;
+  font-size: 1.6vw;
+  top: 1.5%;
+}
+
+.title-cat {
+  left: 15%;
+  position: relative;
+  width: 15%;
+  margin: 0;
+  color: #000;
+  font-size: 1.8vw;
+  top: 3.5%;
+}
+
+.title hr {
+  position: fixed;
+  width: 97%;
+  left: 3vw;
+  border-width: 3px 0px 0px 0px;
+  border-style: solid;
+  /* 線種 */
+  border-color: #f5a633;
+  /* 線色 */
+  margin: 0;
+}
+
+.canvas {
+  width: 56vw;
+  height: 31.5vw;
+  margin-top: 15%;
+  border: 2px solid #000;
+}
+
+.canvas-wrapper {
+  width: 57%;
+  height: 100vh;
+  top: 10%;
+  position: fixed;
+  margin-left: 3vw;
+}
+
+.canvasBtn {
+  width: 12%;
+  height: 4%;
+  margin-top: 5%;
+  background-color: #f5a633;
+  color: #fff;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 1.6vw;
+  font-weight: bold;
+}
+
+.input-wrapper {
+  width: 40vw;
+  background-color: #f5a633;
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+.input-wrapper p {
+  color: #fff;
+}
+
+.form {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.form-parts {
+  width: 100%;
+  margin: 3% 0 3% 5%;
+}
+
+.form-parts p {
+  margin: 0 0 2% 0;
+  font-size: 1.5vw;
+  color: #fff;
+}
+
+.form-parts input {
+  width: 80%;
+  height: 3vh;
+  border: none;
+}
+
+.form-parts select {
+  width: 30%;
+  height: 3vh;
+}
+
+.form:last-child {
+  margin-bottom: 10%;
+}
+
+.form-border {
+  border-width: 3px 0px 0px 0px;
+  border-style: solid;
+  /* 線種 */
+  border-color: #fff;
+  /* 線色 */
+  width: 90%;
+}
+
+.form-stack {
+  font-size: 2.2vw;
+  font-weight: bold;
+  margin: 0 0 0 5%;
+}
+
+.form-parts-strength {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-right: 5%;
+}
+
+.form-parts-strength p {
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-parts-strength input {
+  width: 20%;
+}
+/*# sourceMappingURL=main.css.map */
