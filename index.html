@@ -22,41 +22,53 @@
 			<button id="js-draw" class="canvasBtn">描画</button>
 			<button id="js-save" class="canvasBtn">保存</button>
 		</div>
-		<div class="input-wrapper">
+		<div class="input-wrapper" id="form">
 			<form class="form">
 				<div class="form-parts">
 					<p>名前(ニックネームOK)</p>
-					<div id="name">
+					<div>
 						<input type="text" id="js-name" value="" v-model="name" />
+						<p>name is ..{{ name }}</p>
 					</div>
 				</div>
 				<div class="form-parts">
 					<p>振り仮名(ローマ字)</p>
 					<div>
-						<input type="text" id="js-name-ruby" value="" />
+						<input type="text" id="js-name-ruby" value="" v-model="nameRuby" />
 					</div>
 				</div>
 				<div class="form-parts">
 					<p>大学・専門学校</p>
 					<div>
-						<input type="text" id="js-school-name" value="" />
+						<input
+							type="text"
+							id="js-school-name"
+							value=""
+							v-model="schoolName"
+						/>
 					</div>
 				</div>
 				<div class="form-parts">
 					<p>学部・研究科・コース</p>
 					<div>
-						<input type="text" id="js-school-major" value="" />
+						<input
+							type="text"
+							id="js-school-major"
+							value=""
+							v-model="schoolMajor"
+						/>
 					</div>
 				</div>
 				<div class="form-parts">
 					<p>学年</p>
-					<select id="js-grade">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
+					<select id="js-grade" v-model="grade">
+						<option value="">学年を選択してください</option>
+						<option>1年</option>
+						<option>2年</option>
+						<option>3年</option>
+						<option>4年</option>
+						<option>5年</option>
+						<option>6年</option>
 					</select>
 				</div>
 
@@ -64,7 +76,8 @@
 				<p class="form-stack">技術スタック</p>
 				<div class="form-parts">
 					<p>得意領域</p>
-					<select id="js-strength">
+					<select id="js-strength" v-model="strength">
+						<option value="">得意な領域を1つ選択してください</option>
 						<option>webフロントエンド</option>
 						<option>モバイル(iOS)</option>
 						<option>モバイル(Android)</option>
@@ -81,57 +94,293 @@
 				<div class="form-parts">
 					<p>得意な言語・フレームワーク(6個まで)</p>
 					<div class="form-parts-strength">
-						<p><input name="js-strength" type="checkbox" value="c" />C/C++</p>
-						<p><input name="js-strength" type="checkbox" value="csharp" />C#</p>
-						<p><input name="js-strength" type="checkbox" value="css" />CSS3</p>
-						<p><input name="js-strength" type="checkbox" value="" />Dart</p>
-						<p><input name="js-strength" type="checkbox" value="" />Go</p>
 						<p>
-							<input name="js-strength" type="checkbox" value="html" />HTML5
-						</p>
-						<p><input name="js-strength" type="checkbox" value="java" />Java</p>
-						<p>
-							<input name="js-strength" type="checkbox" value="" />Javascript
-						</p>
-						<p><input name="js-strength" type="checkbox" value="" />Kotolin</p>
-						<p>
-							<input name="js-strength" type="checkbox" value="" />Objective-C
-						</p>
-						<p><input name="js-strength" type="checkbox" value="" />Perl</p>
-						<p><input name="js-strength" type="checkbox" value="" />PHP</p>
-						<p>
-							<input name="js-strength" type="checkbox" value="python" />Python
-						</p>
-						<p><input name="js-strength" type="checkbox" value="" />Ruby</p>
-						<p><input name="js-strength" type="checkbox" value="" />Rust</p>
-						<p><input name="js-strength" type="checkbox" value="" />Scala</p>
-						<p><input name="js-strength" type="checkbox" value="" />Swift</p>
-						<p>
-							<input name="js-strength" type="checkbox" value="" />TypeScript
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="c"
+								v-model="stack"
+							/>C/C++
 						</p>
 						<p>
-							<input name="js-strength" type="checkbox" value="rails" />Rails
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="csharp"
+								v-model="stack"
+							/>C#
 						</p>
-						<p><input name="js-strength" type="checkbox" value="" />Laravel</p>
-						<p><input name="js-strength" type="checkbox" value="" />CakePHP</p>
-						<p><input name="js-strength" type="checkbox" value="" />dJango</p>
-						<p><input name="js-strength" type="checkbox" value="" />Flask</p>
-						<p><input name="js-strength" type="checkbox" value="" />FastAPI</p>
-						<p><input name="js-strength" type="checkbox" value="" />Spring</p>
-						<p><input name="js-strength" type="checkbox" value="" />Play</p>
-						<p><input name="js-strength" type="checkbox" value="" />Flutter</p>
-						<p><input name="js-strength" type="checkbox" value="" />iOS</p>
-						<p><input name="js-strength" type="checkbox" value="" />Android</p>
-						<p><input name="js-strength" type="checkbox" value="" />Unity</p>
 						<p>
-							<input name="js-strength" type="checkbox" value="vue" />Vue.js
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="css"
+								v-model="stack"
+							/>CSS3
 						</p>
-						<p><input name="js-strength" type="checkbox" value="" />React</p>
-						<p><input name="js-strength" type="checkbox" value="" />Angular</p>
-						<p><input name="js-strength" type="checkbox" value="" />Nuxt.js</p>
-						<p><input name="js-strength" type="checkbox" value="" />Next.js</p>
 						<p>
-							<input name="js-strength" type="checkbox" value="" />Scss(Sass)
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="dart"
+								v-model="stack"
+							/>Dart
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="go"
+								v-model="stack"
+							/>Go
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="html"
+								v-model="stack"
+							/>HTML5
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="java"
+								v-model="stack"
+							/>Java
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="javascript"
+								v-model="stack"
+							/>Javascript
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="kotlin"
+								v-model="stack"
+							/>Kotlin
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="objective_c"
+								v-model="stack"
+							/>Objective-C
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="perl"
+								v-model="stack"
+							/>Perl
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="php"
+								v-model="stack"
+							/>PHP
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="python"
+								v-model="stack"
+							/>Python
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="ruby"
+								v-model="stack"
+							/>Ruby
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="rust"
+								v-model="stack"
+							/>Rust
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="scala"
+								v-model="stack"
+							/>Scala
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="swift"
+								v-model="stack"
+							/>Swift
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="typescript"
+								v-model="stack"
+							/>TypeScript
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="rails"
+								v-model="stack"
+							/>Rails
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="laravel"
+								v-model="stack"
+							/>Laravel
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="cakephp"
+								v-model="stack"
+							/>CakePHP
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="django"
+								v-model="stack"
+							/>dJango
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="flask"
+								v-model="stack"
+							/>Flask
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="fastapi"
+								v-model="stack"
+							/>FastAPI
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="spring"
+								v-model="stack"
+							/>Spring
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="play"
+								v-model="stack"
+							/>Play
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="flutter"
+								v-model="stack"
+							/>Flutter
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="ios"
+								v-model="stack"
+							/>iOS
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="android"
+								v-model="stack"
+							/>Android
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="unity"
+								v-model="stack"
+							/>Unity
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="vue"
+								v-model="stack"
+							/>Vue.js
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="react"
+								v-model="stack"
+							/>React
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="angular"
+								v-model="stack"
+							/>Angular
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="nuxt"
+								v-model="stack"
+							/>Nuxt.js
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="next"
+								v-model="stack"
+							/>Next.js
+						</p>
+						<p>
+							<input
+								name="js-strength"
+								type="checkbox"
+								value="sass"
+								v-model="stack"
+							/>Scss(Sass)
 						</p>
 					</div>
 				</div>

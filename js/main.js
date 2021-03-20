@@ -46,7 +46,7 @@ function Draw() {
 		ctx.fillText($schoolName, w / 100, (h * 2) / 3); //学校名描画
 		ctx.fillText(
 			//学部名、学年描画
-			`${$schoolMajor} ${$grade}年`,
+			`${$schoolMajor} ${$grade}`,
 			w / 100,
 			(h * 2) / 3 + (h * 5) / 100
 		);
@@ -71,7 +71,7 @@ function Draw() {
 				// 	// console.log('checked', icon.value);
 				//画像出す
 				const img = new Image();
-				img.src = `assets/${icon.value}.png`;
+				img.src = `image/stacks/${icon.value}.png`;
 				// 	img.onload = () => {
 				// 		ctx.drawImage(img, w / 40 + (w * 3) / 4, (h * 2) / 6, w / 20, w / 20);
 				// 	};
@@ -85,8 +85,8 @@ function Draw() {
 						img,
 						0,
 						0,
-						100,
-						100,
+						500,
+						500,
 						(w * p) / 40 + (w * p - 1) / 20 + (w * 3) / 4 - (w * 5) / 100,
 						(h * 2) / 6 + ((w * 3) / 40) * (q - 1),
 						w / 20,
@@ -181,22 +181,53 @@ document.addEventListener(
 );
 
 new Vue({
-	el: '#name',
+	el: '#form',
 	data: {
 		name: '',
+		nameRuby: '',
+		schoolName: '',
+		schoolMajor: '',
+		grade: '',
+		strength: '',
+		stack: [],
 	},
-	created: function () {
-		this.delayFunc = _.debounce(this.draw, 200);
-	},
+	// created: function () {
+	// this.delayFunc = _.debounce(this.draw, 200);
+	// },
 	watch: {
-		name: function (newValue, oldValue) {
-			this.delayFunc();
-		},
-	},
-	methods: {
-		draw: function () {
+		name: function () {
+			// this.delayFunc();
 			Draw();
-			console.log('OK');
+		},
+		nameRuby: function () {
+			// this.delayFunc();
+			Draw();
+		},
+		schoolName: function () {
+			// this.delayFunc();
+			Draw();
+		},
+		schoolMajor: function () {
+			// this.delayFunc();
+			Draw();
+		},
+		grade: function () {
+			// this.delayFunc();
+			Draw();
+		},
+		strength: function () {
+			// this.delayFunc();
+			Draw();
+		},
+		stack: function () {
+			// this.delayFunc();
+			Draw();
 		},
 	},
+	// methods: {
+	// draw: function () {
+	// Draw();
+	// console.log('OK');
+	// },
+	// },
 });
